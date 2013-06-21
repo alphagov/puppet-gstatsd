@@ -45,10 +45,10 @@
 #
 
 class gstatsd (
-    flush_interval    = 10,
-    graphite_server   = 'localhost',
-    graphite_port     = 2003,
-    percent_threshold = 90,
+    $flush_interval    = 10,
+    $graphite_server   = 'localhost',
+    $graphite_port     = 2003,
+    $percent_threshold = 90,
 ) {
     package {'libevent-dev':
         ensure => installed,
@@ -56,26 +56,26 @@ class gstatsd (
     package {'gevent':
         ensure   => present,
         provider => 'pip',
-        requires => Package['libevent-dev'],
+        require  => Package['libevent-dev'],
     }
     package {'gstatsd':
         ensure   => present,
         provider => 'pip',
-        requires => Package['gevent']
+        require  => Package['gevent']
     }
     file {'/etc/default/gstatsd':
         ensure   => present,
         content  => template('gstatsd/defaults.erb'),
-        requires => Package['gstatsd'],
+        require  => Package['gstatsd'],
     }
     file {'/etc/init/gstatsd.conf':
         ensure   => present,
         source   => 'puppet:///gstatsd/upstart.conf',
-        requires => File['/etc/default/gstatsd'],
+        require  => File['/etc/default/gstatsd'],
     }
     service {'gstatsd':
         ensure   => running,
         provider => 'upstart',
-        requires => File['/etc/init/gstatsd.conf'],
+        require  => File['/etc/init/gstatsd.conf'],
     }
 }
