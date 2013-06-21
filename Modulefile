@@ -1,0 +1,8 @@
+name    'samjsharpe-gstatsd'
+version '0.1.0'
+source 'https://github.com/samjsharpe/puppet-gstatsd'
+author 'Sam J Sharpe'
+license 'MIT'
+summary 'Install gstatsd on Ubuntu'
+description 'This module will install gstatsd, a python implementation of Etsy's StatsD. It has been tested on Ubuntu 12.04 LTS'
+project_page 'https://github.com/samjsharpe/puppet-gstatsd'
