@@ -1,4 +1,5 @@
-= Puppet Module: gstatsd =
+Puppet Module: gstatsd
+======================
 
 This module will install gstatsd and configure it to send statistics to a
 Graphite instance (on localhost by default)
@@ -6,7 +7,8 @@ Graphite instance (on localhost by default)
 It assumes that the python-dev python-pip are already installed by another
 module such as https://github.com/stankevich/puppet-python
 
-== Parameters ==
+Parameters
+----------
 
 The following optional parameters are available:
 
@@ -26,7 +28,8 @@ carbon-cache is 2003.
 When sending time information, calculate the Nth percentile. The default for
 gstatsd is 90.
 
-== Examples ==
+Examples
+--------
 ```
   class { gstatsd:
     flush_interval    => 10,
@@ -35,11 +38,9 @@ gstatsd is 90.
     percent_threshold => 90,
   }
 ```
-== Authors ==
 
-Sam J Sharpe
-
-== Copyright ==
+Licence
+-------
 
 Copyright (C) 2013, Sam J Sharpe
 
