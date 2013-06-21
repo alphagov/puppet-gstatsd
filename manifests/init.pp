@@ -70,7 +70,7 @@ class gstatsd (
     }
     file {'/etc/init/gstatsd.conf':
         ensure   => present,
-        source   => 'puppet:///gstatsd/upstart.conf',
+        source   => 'puppet:///modules/gstatsd/upstart.conf',
         require  => File['/etc/default/gstatsd'],
     }
     service {'gstatsd':
